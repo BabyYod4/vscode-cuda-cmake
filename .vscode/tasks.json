@@ -1,0 +1,50 @@
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    {
+        "version": "2.0.0",
+        "type": "shell",
+        "presentation": { "reveal": "always" },
+        "options": {
+            "cwd": "${workspaceRoot}/build"
+        },
+        "tasks": [
+            {
+                "label": "cmakeTask",
+                "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. ",
+                "problemMatcher": []
+            },
+            {
+                "label": "makeTask",
+                "command": "make -j$(nproc)",
+                "problemMatcher": []
+            },
+    
+            {
+                "label": "cleanTask",
+                "linux":{ "command": "rm -rf *" },
+                "problemMatcher": []
+            },
+            {
+                "label": "debugRun",
+                "dependsOrder": "sequence",
+                "dependsOn": [
+                    "cmakeTask",
+                    "makeTask"
+                ]
+            },
+            {
+                "label": "normalRun",
+                "type": "shell",
+                "dependsOrder": "sequence",
+                "dependsOn": [
+                    "cmakeTask",
+                    "makeTask"
+                ],
+                "command": "cd ../bin && ./cuda-tutorial.exe",
+                "presentation": {
+                    "reveal": "always",
+                    "clear": true
+                }
+            }
+        ]
+    }

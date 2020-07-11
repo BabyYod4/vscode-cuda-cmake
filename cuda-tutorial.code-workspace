@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{ "path": "." }
+	],
+	"settings": {
+		"files.associations": {
+			"*.cu": "cuda",
+			"*.cuh": "cuda",
+			"ostream": "cpp"
+		},
+		"files.exclude": {
+			"build/": true,
+			"bin/": true
+		}
+	}
+}
