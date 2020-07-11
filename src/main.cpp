@@ -5,7 +5,7 @@
 int main()
 {
 
-    const int BUFF_SIZE = 1024;
+    const int BUFF_SIZE = 100;
     const int BUFF_SIZE_BYTE = BUFF_SIZE * sizeof(float);
 
     float h_in[BUFF_SIZE];
